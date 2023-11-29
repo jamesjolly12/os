@@ -1,0 +1,20 @@
+#!/bin/bash
+
+check_palindrome() {
+    input="$1"
+    reversed=""
+    len=${#input}
+
+    for ((i = len - 1; i >= 0; i--)); do
+        reversed="$reversed${input:$i:1}"
+    done
+
+    if [ "$input" == "$reversed" ]; then
+        echo "$input is a palindrome."
+    else
+        echo "$input is not a palindrome."
+    fi
+}
+
+read -p "Enter a string to check if it's a palindrome: " user_input
+check_palindrome "$user_input"
